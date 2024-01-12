@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(https://db.onlinewebfonts.com/c/5e72186f2671cdfad7e0ca56b85262ef?family=HelveticaNeueLT+Arabic+75+Bold);
+@font-face {
+  font-family: "29LTZaridSlab-Bold";
+  src: url("../../fonts/alfont_com_29LTZaridSlab-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "HelveticaNeueLT Arabic 75 Bold";
+  src: url('../../fonts/HelveticaNeueLT-Arabic-75-Bold.ttf');
+}
+
+html {
+    font-family: 'HelveticaNeueLT Arabic 75 Bold';
+}
