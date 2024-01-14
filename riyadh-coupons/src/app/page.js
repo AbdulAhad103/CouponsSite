@@ -4,6 +4,7 @@ import Airtable from "airtable";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import { useEffect, useState } from "react";
+import Pagination from "./components/Pagination";
 
 export default function Home() {
   // const TOKEN_ID = "pat6ctkSNfMS5DX6L.2d64d0b226e6a1b6e2225841a1ca1466d1944387ed58c382bba66ede43c0cb98"
@@ -36,6 +37,7 @@ export default function Home() {
       <main className="max-w-[1658px] w-[85vw] mx-auto flex flex-col gap-[2svh]">
         <Header />
         <Search setSearch={setSearch} />
+        <Pagination />
       </main>
   );
 }
