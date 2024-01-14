@@ -32,17 +32,16 @@ export default function Home() {
   //     if (err) { console.error(err); return; }
   // });
 
-  const [search, setSearch] = useState("");
 
   return (
     <>
       <main className="relative max-w-[1658px] w-[85vw] mx-auto flex flex-col gap-[2svh] pb-52">
         <Header />
-        <Search setSearch={setSearch} />
         <Pagination />
         <Footer />
       </main>
-      <div className="h-24 w-full bg-[#FBC52D]"></div>
+      <div className="block md:hidden h-28 md:h-24 w-full bg-[#081edd]"></div>
+      <div className="h-28 md:h-24 w-full bg-[#FBC52D]"></div>
     </>
   );
 }

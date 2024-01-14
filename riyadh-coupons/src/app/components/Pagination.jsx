@@ -2,19 +2,27 @@
 import { useState } from "react";
 import PaginationBtn from "./PaginationBtn";
 import CategoryPage from "./CategoryPage";
+import Search from "./Search";
 
 const Pagination = () => {
+  // Page Number
   const [activeIndex, setActiveIndex] = useState(6);
 
   const changeIndex = (index) => {
     setActiveIndex(index);
   };
+
+  const [search, setSearch] = useState("");
+
   return (
     <div className="flex flex-col gap-7">
-      <RenderPaginationBtns
-        activeIndex={activeIndex}
-        changeIndex={changeIndex}
-      />
+      <div className="flex flex-col md:flex-col-reverse gap-5">
+        <RenderPaginationBtns
+          activeIndex={activeIndex}
+          changeIndex={changeIndex}
+        />
+        <Search setSearch={setSearch} />
+      </div>
       <CategoryPage activeCategory={activeIndex} />
     </div>
   );
@@ -22,19 +30,19 @@ const Pagination = () => {
 
 const RenderPaginationBtns = ({ activeIndex, changeIndex }) => {
   const [categories, setCategories] = useState([
-    "التسوق",
-    "المطاعم",
-    "الجمال",
-    "العطور",
-    "الأواني",
-    "السفر",
-    "سوبر ماركت",
-    "مواد بناء",
     "أخرى",
+    "مواد بناء",
+    "سوبر ماركت",
+    "السفر",
+    "الأواني",
+    "العطور",
+    "الجمال",
+    "المطاعم",
+    "التسوق",
   ]);
   return (
-    <div className="w-full flex justify-between items-center">
-      {[...categories].reverse().map((category, index) => {
+    <div className="w-full overflow-x-scroll flex justify-between items-center">
+      {categories.map((category, index) => {
         let isActive = false;
         if (index === activeIndex) isActive = true;
         return (
