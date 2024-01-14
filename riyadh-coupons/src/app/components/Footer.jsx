@@ -17,7 +17,7 @@ const Footer = () => {
     <footer className="absolute bottom-0 translate-y-[105%] md:translate-y-1/2 left-1/2 -translate-x-1/2 flex justify-between items-center w-full max-w-[1500px] flex-col-reverse md:flex-row">
       <Link
         href={"mailto:hey@riyadhcoupon.com"}
-        className="px-5 pt-1 pb-2 bg-[#081EDD] border border-[#707070] text-white rounded-xl text-2xl mb-5 md:mb-0"
+        className="px-5 pt-1 pb-2 bg-[#081EDD] border border-[#707070] text-white rounded-xl text-2xl mb-5 md:mb-0 hover:bg-[#0000ac] transition-all"
       >
         Hey@RiyadhCoupon.com
       </Link>
@@ -32,7 +32,7 @@ const Footer = () => {
         />
         <button
           type="submit"
-          className="bg-[#212121] text-[#FBC52D] w-full rounded-lg pt-1 pb-2 mt-2 flex  justify-center items-center gap-3 text-xl"
+          className="bg-[#212121] hover:bg-[#0e0e0e] text-[#FBC52D] w-full rounded-lg pt-1 pb-2 mt-2 flex  justify-center items-center gap-3 text-xl transition-all"
         >
           أرسلي العروض الفخمة <Star width={20} color={"#FBC500"} />
         </button>

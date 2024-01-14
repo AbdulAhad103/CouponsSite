@@ -2,8 +2,6 @@
 import Image from "next/image";
 import Airtable from "airtable";
 import Header from "./components/Header";
-import Search from "./components/Search";
-import { useEffect, useState } from "react";
 import Pagination from "./components/Pagination";
 import Footer from "./components/Footer";
 
