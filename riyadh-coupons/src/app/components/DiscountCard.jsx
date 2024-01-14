@@ -14,7 +14,7 @@ const DiscountCard = ({
   };
 
   return (
-    <div className="relative bg-white max-w-[382px] gap-5 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-5">
+    <div className="relative bg-white max-w-[382px] gap-5 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-5 mb-16">
       <div className="w-[339px] h-[332px] bg-[#F2F2F2] rounded-xl flex justify-center">
         <Image src={image} className="w-[250px] aspect-auto object-contain" />
       </div>

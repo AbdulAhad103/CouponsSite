@@ -79,14 +79,14 @@ const CategoryPage = ({ activeCategory }) => {
     <div>
       <h2 className="text-right text-4xl mb-2">كوبونات الخصم</h2>
       <h3 className="text-right text-[#9A9A9A] text-3xl mb-10">جرب التوفير</h3>
-      <div className="flex justify-between items-center max-w-[1658px]">
+      <div className="flex justify-between items-center flex-wrap max-w-[1658px]">
         {coupons.map((coupon, index) => (
           <DiscountCard {...coupon} key={index} />
         ))}
       </div>
       <h2 className="text-right text-4xl mb-2 mt-24">عروض المتاجر</h2>
       <h3 className="text-right text-[#9A9A9A] text-3xl mb-10">متاجر مميزة</h3>
-      <div className="flex justify-between items-center max-w-[1658px]">
+      <div className="flex justify-between items-center flex-wrap max-w-[1658px]">
         {referrals.map((referral, index) => (
           <DiscountCard {...referral} key={index} />
         ))}
