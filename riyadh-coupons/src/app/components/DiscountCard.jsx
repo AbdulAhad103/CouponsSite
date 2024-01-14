@@ -24,8 +24,8 @@ const DiscountCard = ({
   }
 
   return (
-    <div className="relative bg-white w-full md:max-w-[382px] gap-5 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-5 mb-16">
-      <div className="w-full md:w-[339px] h-[332px] bg-[#F2F2F2] rounded-xl flex justify-center">
+    <div className="relative bg-white w-full md:w-[24%] md:max-w-[382px] gap-5 border border-gray-200 rounded-2xl flex flex-col justify-center items-center p-5 mb-16">
+      <div className="w-full md:w-full md:max-w-[339px] h-[332px] bg-[#F2F2F2] rounded-xl flex justify-center">
         <Image
           src={image}
           alt={`${headline} coupon code`}
