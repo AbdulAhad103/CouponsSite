@@ -10,7 +10,18 @@
   font-family: "HelveticaNeueLT Arabic 75 Bold";
   src: url('../../fonts/HelveticaNeueLT-Arabic-75-Bold.ttf');
 }
+@font-face {
+  font-family: "Ping AR + LT Heavy";
+  src: url('../../fonts/Ping AR + LT Heavy.ttf');
+}
+@font-face {
+  font-family: "Helvetica 55 Roman Regular";
+  src: url('../../fonts/Helvetica 55 Roman Regular.ttf');
+}
 
 html {
     font-family: 'HelveticaNeueLT Arabic 75 Bold';
+}
+body {
+  background-color: #FFFDF0;
 }
