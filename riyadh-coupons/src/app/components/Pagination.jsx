@@ -41,7 +41,7 @@ const RenderPaginationBtns = ({ activeIndex, changeIndex }) => {
     "التسوق",
   ]);
   return (
-    <div className="w-full overflow-x-scroll flex justify-between items-center">
+    <div className="pagination w-full overflow-x-scroll flex justify-between items-center">
       {categories.map((category, index) => {
         let isActive = false;
         if (index === activeIndex) isActive = true;
