@@ -29,19 +29,21 @@ const DiscountCard = ({
         <Image
           src={image}
           alt={`${headline} coupon code`}
-          className="w-[250px] aspect-auto object-contain"
+          className="w-[200px] aspect-auto object-contain"
+          width={1000}
+          height={1000}
         />
       </div>
       <h4 className={`text-2xl ${isCoupon ? "mb-5" : ""}`}>{headline}</h4>
       {!isCoupon && (
         <p className="text-2xl -mt-2 mb-5 font-['Helvetica_55_Roman_Regular'] text-[#1B1C1C]">
-          خصم {convertToArabic(discountPercentage.toString())}٪
+          خصم {convertToArabic((discountPercentage*100).toString())}٪
         </p>
       )}
       <div className="absolute w-full bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center items-start gap-3">
         {isCoupon ? (
           <>
-            <div className="px-3 pt-2 pb-3 rounded-xl bg-[#FBC500] text-[#021EDD]">
+            <div className="px-7 pt-2 pb-3 rounded-xl bg-[#FBC500] text-[#021EDD]">
               <button
                 className="text=['Ping AR + LT Heavy'] text-2xl cursor-pointer"
                 onClick={copyText}
@@ -54,13 +56,14 @@ const DiscountCard = ({
                 نسبة الخصم
               </div>
               <div className="bg-[#021EED] flex justify-center pt-1 pb-2 text-white text-3xl rounded-bl-lg rounded-br-lg">
-                {discountPercentage}
+                {discountPercentage*100}%
               </div>
             </div>
           </>
         ) : (
           <Link
             href={referralLink}
+            target="_blank"
             className="bg-[#021EED] hover:bg-[#0000ac] transition-all text-white text-xl px-3 pt-1 pb-2 rounded-lg"
           >
             أحصل على العرض

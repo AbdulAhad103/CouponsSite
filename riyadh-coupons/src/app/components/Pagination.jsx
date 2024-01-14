@@ -4,7 +4,7 @@ import PaginationBtn from "./PaginationBtn";
 import CategoryPage from "./CategoryPage";
 import Search from "./Search";
 
-const Pagination = () => {
+const Pagination = ({ coupons, referrals }) => {
   // Page Number
   const [activeIndex, setActiveIndex] = useState(6);
 
@@ -23,7 +23,7 @@ const Pagination = () => {
         />
         <Search setSearch={setSearch} />
       </div>
-      <CategoryPage activeCategory={activeIndex} />
+      <CategoryPage activeCategory={activeIndex} coupons={coupons} referrals={referrals} />
     </div>
   );
 };

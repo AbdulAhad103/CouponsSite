@@ -6,83 +6,84 @@ import Turkish from "../../../public/images/Turkish_Airlines.png";
 import Alsaif from "../../../public/images/Alsaif_Gallery.png";
 import DiscountCard from "./DiscountCard";
 
-const CategoryPage = ({ activeCategory }) => {
-  const [coupons, setCoupons] = useState([
-    {
-      image: Zara,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "5%",
-      isCoupon: true,
-      couponCode: "RUHCO",
-      referralLink: "",
-    },
-    {
-      image: Tommy,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "5%",
-      isCoupon: true,
-      couponCode: "RUHCO",
-      referralLink: "",
-    },
-    {
-      image: Turkish,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "5%",
-      isCoupon: true,
-      couponCode: "RUHCO",
-      referralLink: "",
-    },
-    {
-      image: Alsaif,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "5%",
-      isCoupon: true,
-      couponCode: "RUHCO",
-      referralLink: "",
-    },
-    {
-      image: Alsaif,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "5%",
-      isCoupon: true,
-      couponCode: "RUHCO",
-      referralLink: "",
-    },
-  ]);
-  const [referrals, setReferrals] = useState([
-    {
-      image: Zara,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "0",
-      isCoupon: false,
-      couponCode: "",
-      referralLink: "/",
-    },
-    {
-      image: Tommy,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "9",
-      isCoupon: false,
-      couponCode: "",
-      referralLink: "/",
-    },
-    {
-      image: Turkish,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "10",
-      isCoupon: false,
-      couponCode: "",
-      referralLink: "/",
-    },
-    {
-      image: Alsaif,
-      headline: "الخطوط الجوية التركية",
-      discountPercentage: "0",
-      isCoupon: false,
-      couponCode: "",
-      referralLink: "/",
-    },
-  ]);
+const CategoryPage = ({ activeCategory, coupons, referrals }) => {
+  
+  // const [coupons, setCoupons] = useState([
+  //   {
+  //     image: Zara,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "5%",
+  //     isCoupon: true,
+  //     couponCode: "RUHCO",
+  //     referralLink: "",
+  //   },
+  //   {
+  //     image: Tommy,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "5%",
+  //     isCoupon: true,
+  //     couponCode: "RUHCO",
+  //     referralLink: "",
+  //   },
+  //   {
+  //     image: Turkish,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "5%",
+  //     isCoupon: true,
+  //     couponCode: "RUHCO",
+  //     referralLink: "",
+  //   },
+  //   {
+  //     image: Alsaif,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "5%",
+  //     isCoupon: true,
+  //     couponCode: "RUHCO",
+  //     referralLink: "",
+  //   },
+  //   {
+  //     image: Alsaif,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "5%",
+  //     isCoupon: true,
+  //     couponCode: "RUHCO",
+  //     referralLink: "",
+  //   },
+  // ]);
+  // const [referrals, setReferrals] = useState([
+  //   {
+  //     image: Zara,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "0",
+  //     isCoupon: false,
+  //     couponCode: "",
+  //     referralLink: "/",
+  //   },
+  //   {
+  //     image: Tommy,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "9",
+  //     isCoupon: false,
+  //     couponCode: "",
+  //     referralLink: "/",
+  //   },
+  //   {
+  //     image: Turkish,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "10",
+  //     isCoupon: false,
+  //     couponCode: "",
+  //     referralLink: "/",
+  //   },
+  //   {
+  //     image: Alsaif,
+  //     headline: "الخطوط الجوية التركية",
+  //     discountPercentage: "0",
+  //     isCoupon: false,
+  //     couponCode: "",
+  //     referralLink: "/",
+  //   },
+  // ]);
   return (
     <div>
       <h2 className="text-right text-4xl mb-2">كوبونات الخصم</h2>
