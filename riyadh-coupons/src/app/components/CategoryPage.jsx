@@ -1,89 +1,92 @@
 "use client";
-import { useState } from "react";
-import Zara from "../../../public/images/Zara.png";
-import Tommy from "../../../public/images/Tommy_Hilfiger.png";
-import Turkish from "../../../public/images/Turkish_Airlines.png";
-import Alsaif from "../../../public/images/Alsaif_Gallery.png";
+import { useEffect, useState } from "react";
+import Airtable from "airtable";
 import DiscountCard from "./DiscountCard";
 
-const CategoryPage = ({ activeCategory, coupons, referrals }) => {
-  
-  // const [coupons, setCoupons] = useState([
-  //   {
-  //     image: Zara,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "5%",
-  //     isCoupon: true,
-  //     couponCode: "RUHCO",
-  //     referralLink: "",
-  //   },
-  //   {
-  //     image: Tommy,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "5%",
-  //     isCoupon: true,
-  //     couponCode: "RUHCO",
-  //     referralLink: "",
-  //   },
-  //   {
-  //     image: Turkish,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "5%",
-  //     isCoupon: true,
-  //     couponCode: "RUHCO",
-  //     referralLink: "",
-  //   },
-  //   {
-  //     image: Alsaif,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "5%",
-  //     isCoupon: true,
-  //     couponCode: "RUHCO",
-  //     referralLink: "",
-  //   },
-  //   {
-  //     image: Alsaif,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "5%",
-  //     isCoupon: true,
-  //     couponCode: "RUHCO",
-  //     referralLink: "",
-  //   },
-  // ]);
-  // const [referrals, setReferrals] = useState([
-  //   {
-  //     image: Zara,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "0",
-  //     isCoupon: false,
-  //     couponCode: "",
-  //     referralLink: "/",
-  //   },
-  //   {
-  //     image: Tommy,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "9",
-  //     isCoupon: false,
-  //     couponCode: "",
-  //     referralLink: "/",
-  //   },
-  //   {
-  //     image: Turkish,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "10",
-  //     isCoupon: false,
-  //     couponCode: "",
-  //     referralLink: "/",
-  //   },
-  //   {
-  //     image: Alsaif,
-  //     headline: "الخطوط الجوية التركية",
-  //     discountPercentage: "0",
-  //     isCoupon: false,
-  //     couponCode: "",
-  //     referralLink: "/",
-  //   },
-  // ]);
+const CategoryPage = ({ activeCategory }) => {
+
+  const idToName = (id) => {
+    if (id === "recwNHt03bNMaxEqg") return "زارا";
+    if (id === "recU3rCFXf6FhhWau") return "الخطوط الجوية التركية";
+    if (id === "recFd4c7bZYeDjPsD") return "السيف غاليري";
+    if (id === "rec5XNRPavPNJkT9C") return "تومي هيلفيغر";
+  };
+
+  const [coupons, setCoupons] = useState([]);
+  function fetchCoupons(base) {
+    base("Discount coupon")
+      .select({
+        view: "Grid view",
+      })
+      .eachPage(function page(records, fetchNextPage) {
+        records.forEach(function (record) {
+          try {
+            const fields = record.fields;
+            const obj = {
+              image: fields.IMAGE[0].url,
+              headline: idToName(fields.SELLER[0]),
+              discountPercentage: fields.discountPercentage,
+              isCoupon: true,
+              couponCode: fields.DiscountCode,
+              referralLink: "",
+            };
+            console.log(record);
+            setCoupons([...coupons, obj]);
+          } catch (e) {
+            console.log("ERROR");
+          }
+        });
+        function done(err) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        }
+      });
+  }
+
+  const [referrals, setReferrals] = useState([]);
+
+  function fetchReferrals(base) {
+    base("Referral links")
+      .select({
+        view: "Grid view",
+      })
+      .eachPage(function page(records, fetchNextPage) {
+        records.forEach(function (record) {
+          try {
+            const fields = record.fields;
+            const obj = {
+              image: fields.IMAGE[0].url,
+              headline: idToName(fields.SELLER[0]),
+              discountPercentage: fields.discountPercentage,
+              isCoupon: false,
+              couponCode: "",
+              referralLink: fields.ReferralLinks,
+            };
+            setReferrals([...referrals, obj]);
+          } catch (e) {
+            console.log("ERROR");
+          }
+        });
+        function done(err) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        }
+      });
+  }
+
+  useEffect(()=> {
+    var base = new Airtable({
+      apiKey:
+        "pat6ctkSNfMS5DX6L.46279e5c455dfb85f9d04d3dc9914a0f5aa7c2038ab04a05a92b0f6883104094",
+    }).base("appcKk3YBb5YRubtz");
+    fetchCoupons(base);
+    fetchReferrals(base);
+  }, [])
+
   return (
     <div>
       <h2 className="text-right text-4xl mb-2">كوبونات الخصم</h2>
