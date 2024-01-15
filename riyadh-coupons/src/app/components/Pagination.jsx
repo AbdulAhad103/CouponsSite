@@ -65,7 +65,7 @@ const RenderPaginationBtns = ({ activeIndex, changeIndex }) => {
     fetchCategories(base);
   }, [])
   return (
-    <div className="pagination w-full overflow-x-scroll flex justify-between items-center">
+    <div className="pagination w-full overflow-x-scroll flex justify-center gap-3 md:justify-between items-center">
       {[...new Set(categories)].map((category, index) => {
         let isActive = false;
         if (category === activeIndex) isActive = true;
